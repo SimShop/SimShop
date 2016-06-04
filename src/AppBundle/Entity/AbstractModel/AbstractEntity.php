@@ -9,8 +9,8 @@
 
 namespace AppBundle\Entity\AbstractModel;
 
-
-use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 class AbstractEntity implements EntityInterface
 {
@@ -22,17 +22,31 @@ class AbstractEntity implements EntityInterface
     protected $id;
 
     /**
-     * @Column(type="datetime", name="created_at")
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime", name="created_at")
      */
     protected $createdAt;
 
     /**
-     * @Column(type="datetime", name="modified_at")
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime", name="modified_at")
      */
     protected $modifiedAt;
 
     /**
-     * @return String
+     * @Gedmo\Blameable(on="create")
+     * @ORM\Column(type="string", name="created_by")
+     */
+    private $createdBy;
+
+    /**
+     * @Gedmo\Blameable(on="update")
+     * @ORM\Column(type="string", name="modified_by")
+     */
+    private $modifiedBy;
+
+    /**
+     * @return string
      */
     public function getId()
     {
@@ -54,4 +68,37 @@ class AbstractEntity implements EntityInterface
     {
         return $this->modifiedAt;
     }
+
+    /**
+     * @return string
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * @param string $createdBy
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->createdBy = $createdBy;
+    }
+
+    /**
+     * @return string
+     */
+    public function getModifiedBy()
+    {
+        return $this->modifiedBy;
+    }
+
+    /**
+     * @param string $modifiedBy
+     */
+    public function setModifiedBy($modifiedBy)
+    {
+        $this->modifiedBy = $modifiedBy;
+    }
+
 }
