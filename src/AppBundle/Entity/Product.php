@@ -9,7 +9,7 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\AbstractModel\AbstractEntity;
+use AppBundle\Model\AbstractModel\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
