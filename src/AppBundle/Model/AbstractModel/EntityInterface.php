@@ -7,7 +7,7 @@
  * Time: 0:14
  */
 
-namespace AppBundle\Entity\AbstractModel;
+namespace AppBundle\Model\AbstractModel;
 
 
 interface EntityInterface

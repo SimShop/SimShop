@@ -7,7 +7,7 @@
  * Time: 14:20
  */
 
-namespace AppBundle\Entity\Repository;
+namespace AppBundle\Repository;
 
 use Gedmo\Tree\Entity\Repository\NestedTreeRepository;
 

@@ -10,13 +10,13 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Entity\AbstractModel\AbstractEntity;
+use AppBundle\Model\AbstractModel\AbstractEntity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @Gedmo\Tree(type="nested")
- * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\CategoryRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CategoryRepository")
  * @ORM\Table(name="category")
  */
 class Category extends AbstractEntity
