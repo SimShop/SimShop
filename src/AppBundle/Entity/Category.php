@@ -88,6 +88,14 @@ class Category extends AbstractEntity
      */
     private $locale;
 
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+
     public function getSlug()
     {
         return $this->slug;
@@ -158,8 +166,4 @@ class Category extends AbstractEntity
         $this->locale = $locale;
     }
 
-    public function __toString()
-    {
-        return $this->getTitle();
-    }
 }
