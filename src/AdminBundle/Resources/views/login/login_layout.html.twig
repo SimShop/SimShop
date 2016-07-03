@@ -8,7 +8,7 @@
         <div id="login-content">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <p class="message">{{ 'login.already-signed' | trans }}</p>
-                <a href="{{ path('fos_user_security_logout') }}" class="logout"><input type="submit" value="Logout"></a>
+                <a href="{{ path('admin_logout') }}" class="logout"><input type="submit" value="{{ 'login.logout' | trans }}"></a>
             {% else %}
                 <p class="message">{{ 'login.welcome-message' | trans }}</p>
                 {{ block('fos_user_content') }}

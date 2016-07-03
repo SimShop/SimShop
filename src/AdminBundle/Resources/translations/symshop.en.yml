@@ -5,3 +5,4 @@ login:
   password: Password
   remember_me: Remember me
   submit: Login
+  logout: Logout
