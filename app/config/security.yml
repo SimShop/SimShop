@@ -2,6 +2,11 @@
 # http://symfony.com/doc/current/book/security.html
 security:
 
+    role_hierarchy:
+        ROLE_USER:        ROLE_USER
+        ROLE_ADMIN:       ROLE_ADMIN
+        ROLE_SUPER_ADMIN: ROLE_SUPER_ADMIN
+
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
 
@@ -16,12 +21,27 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
+        admin:
+            pattern:            /%admin_route%(.*)
+            form_login:
+                provider:       fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
+                login_path:     /%admin_route%/login
+                check_path:     /%admin_route%/login_check
+                success_handler: authentication.handler.login_success_handler
+            logout:
+                path:           /%admin_route%/logout
+                target:         /%admin_route%/login
+            anonymous: ~
+
         main:
             pattern:  ^/
             form_login:
                 check_path: /login_check
                 login_path: /login
                 provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
+                success_handler: authentication.handler.login_success_handler
             logout:
                 path:   /logout
                 target: /
@@ -33,3 +53,9 @@ security:
 
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+
+    access_control:
+        - { path: ^/%admin_route%/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/%admin_route%/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/%admin_route%/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/%admin_route%/, role: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
