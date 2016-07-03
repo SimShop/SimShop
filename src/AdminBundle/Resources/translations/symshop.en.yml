@@ -1,2 +1,7 @@
 login:
   welcome-message: Please, sign in
+  already-signed: Already signed in
+  username: Username
+  password: Password
+  remember_me: Remember me
+  submit: Login

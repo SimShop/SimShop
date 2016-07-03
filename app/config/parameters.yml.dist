@@ -19,3 +19,4 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     app_name: SymShop
+    admin_route: admin

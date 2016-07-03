@@ -1,7 +1,7 @@
 admin:
     resource: "@AdminBundle/Controller/"
     type:     annotation
-    prefix:   /admin/
+    prefix:   /%admin_route%
 
 app:
     resource: "@AppBundle/Controller/"
@@ -9,3 +9,15 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+admin_login:
+    path:  /%admin_route%/login
+    defaults: { _controller: FOSUserBundle:Security:login }
+
+admin_login_check:
+    path:  /%admin_route%/login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+
+admin_logout:
+    path:  /%admin_route%/logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
