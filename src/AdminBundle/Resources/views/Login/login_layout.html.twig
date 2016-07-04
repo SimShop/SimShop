@@ -7,11 +7,12 @@
 
         <div id="login-content">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                <p class="message">{{ 'login.already-signed' | trans }}</p>
+                <p class="message">{{ 'login.message.already-signed' | trans }}</p>
                 <a href="{{ path('admin_logout') }}" class="logout"><input type="submit" value="{{ 'login.logout' | trans }}"></a>
             {% else %}
-                <p class="message">{{ 'login.welcome-message' | trans }}</p>
+                <p class="message">{{ page | trans }}</p>
                 {{ block('fos_user_content') }}
+
             {% endif %}
         </div>
         <p class="login-subtitle">@2016 by SymShop Community</p>

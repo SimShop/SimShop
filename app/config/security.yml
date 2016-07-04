@@ -58,4 +58,6 @@ security:
         - { path: ^/%admin_route%/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/%admin_route%/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/%admin_route%/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/%admin_route%/request$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/%admin_route%/send-email$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/%admin_route%/, role: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }

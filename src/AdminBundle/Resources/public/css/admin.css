@@ -44,6 +44,16 @@ body {
     color: #2e3436;
 }
 
+#login-body form p {
+    margin-top: 20px;
+    color: #fff;
+    background: #a74949;
+    padding: 10px;
+    font-size: 14px;
+    border: 0px;
+    margin-bottom: 30px;
+}
+
 #login-content {
     padding: 20px 40px;
 }
@@ -58,10 +68,15 @@ body {
     margin-bottom: 5px;
 }
 
-#login-content label[for="remember_me"] {
-    display: inline-block;
-    position: relative;
-    top: -4px;
+/*#login-content label[for="remember_me"] {*/
+    /*display: inline-block;*/
+    /*position: relative;*/
+    /*top: -4px;*/
+/*}*/
+
+#login-content form a {
+    display: block;
+    margin-bottom: 30px;
 }
 
 #login-content input {
