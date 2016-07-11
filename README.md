@@ -1,4 +1,3 @@
-SymShop2
+SymShop
 ========
 
-A Symfony project created on July 10, 2016, 3:57 am.
