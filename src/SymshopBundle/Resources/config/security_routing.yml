@@ -1,0 +1,37 @@
+admin_login:
+    path:  /%admin_route%/login
+    defaults: { _controller: FOSUserBundle:Security:login }
+
+admin_login_check:
+    path:  /%admin_route%/login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+
+admin_logout:
+    path:  /%admin_route%/logout
+    methods: [GET]
+    defaults: { _controller: FOSUserBundle:Security:logout }
+
+admin_request:
+    path:  /%admin_route%/request
+    methods: [GET]
+    defaults: { _controller: SymshopBundle:Admin/Resetting:request }
+
+admin_send_email:
+    path:  /%admin_route%/send-email
+    methods: [POST]
+    defaults: { _controller: SymshopBundle:Admin/Resetting:sendEmail }
+
+admin_check_email:
+    path: /%admin_route%/check-email
+    methods: [GET]
+    defaults: { _controller: SymshopBundle:Admin/Resetting:checkEmail }
+
+admin_reset:
+    path: /%admin_route%/reset/{token}
+    methods: [GET, POST]
+    defaults: { _controller: SymshopBundle:Admin/Resetting:reset }
+
+admin_confirm_password_change:
+    path: /%admin_route%/confirm
+    methods: [GET]
+    defaults: { _controller: SymshopBundle:Admin/Resetting:confirmPasswordChange }

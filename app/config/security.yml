@@ -21,12 +21,13 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
+
         admin:
-            pattern:            /%admin_route%(.*)
+            pattern:            /adm(.*)
             form_login:
                 provider:       fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
-                login_path:     /%admin_route%/login
+                login_path:     /adm/login
                 check_path:     /%admin_route%/login_check
                 success_handler: authentication.handler.login_success_handler
             logout:
@@ -58,4 +59,9 @@ security:
         - { path: ^/%admin_route%/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/%admin_route%/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/%admin_route%/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/%admin_route%/request$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/%admin_route%/send-email$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/%admin_route%/check-email$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/%admin_route%/reset/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/%admin_route%/confirm, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/%admin_route%/, role: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }

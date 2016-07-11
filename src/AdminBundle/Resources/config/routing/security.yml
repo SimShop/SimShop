@@ -1,0 +1,19 @@
+admin_login:
+    path:  /%admin_route%/login
+    defaults: { _controller: FOSUserBundle:Security:login }
+
+admin_login_check:
+    path:  /%admin_route%/login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+
+admin_logout:
+    path:  /%admin_route%/logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+
+admin_reset_request:
+    path:  /%admin_route%/request
+    defaults: { _controller: AdminBundle:Resetting:request }
+
+admin_send_email:
+    path:  /%admin_route%/send-email
+    defaults: { _controller: AdminBundle:Resetting:sendEmail }
