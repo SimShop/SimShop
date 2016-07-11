@@ -1,0 +1,41 @@
+login:
+    message:
+        signin: Please, sign in
+        already-signed: Already signed in
+    username: Username
+    password: Password
+    remember_me: Remember me
+    forgot_password: Forgot your password?
+    submit: Login
+    logout: Logout
+    goto-login-page: Login page
+
+resetting:
+    message:
+        welcome: Reset password
+        check-email: Check email
+        already-requested: Already requested
+        new_password: Type new password
+        confirm_password_change: Password changed
+    password_already_requested: 'The password for this user has already been requested within the last 24 hours.'
+    check_email: 'An email has been sent to %email%. It contains a link you must click to reset your password.'
+    request:
+        invalid_username: 'The username or email address "%username%" does not exist.'
+        username: 'Username or email address'
+        submit: 'Reset password'
+    reset:
+        submit: 'Change password'
+    flash:
+        success: 'The password has been reset successfully'
+    email:
+        subject: 'Reset Password'
+        message: |
+            Hello %username%!
+
+            To reset your password - please visit %confirmationUrl%
+
+            Regards,
+            the Team.
+    reset_password:
+        confirm:  Your password is successfuly changed.
+        continue: Continue

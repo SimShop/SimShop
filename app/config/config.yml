@@ -3,7 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: assetic.yml }
-    - { resource: "@AdminBundle/Resources/config/services.yml" }
+    - { resource: "@SymshopBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -41,6 +41,7 @@ twig:
 
     globals:
         app_name: '%app_name%'
+        admin_route: '/%admin_route%'
 
 # Doctrine Configuration
 doctrine:
@@ -68,8 +69,8 @@ doctrine:
                 type: annotation
                 alias: Gedmo
                 prefix: Gedmo\Translatable\Entity
-                # make sure vendor library location is correct
                 dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+
             tree:
                 type: annotation
                 alias: Gedmo
@@ -98,6 +99,13 @@ swiftmailer:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: AppBundle\Entity\User
+    user_class: SymshopBundle\Entity\User
     resetting:
         token_ttl: 0 # resetting password limited once in given number of seconds
+
+    #email settings
+    service:
+        mailer: fos_user.mailer.default  # fos_user.mailer.default for Swiftmailer use
+    from_email:
+        address:  noreply@example.com
+        sender_name: "%app_name%"

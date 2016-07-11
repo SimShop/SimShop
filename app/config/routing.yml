@@ -1,14 +1,6 @@
-admin:
-    resource: "@AdminBundle/Controller/"
-    type:     annotation
-    prefix:   /%admin_route%
-
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+symshop:
+    resource: "@SymshopBundle/Resources/config/routing.yml"
+    prefix:   /
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-
-admin_security:
-    resource: "@AdminBundle/Resources/config/routing/security.yml"

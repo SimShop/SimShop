@@ -1,0 +1,22 @@
+{% extends "@Symshop/Security/admin/base.html.twig" %}
+{% trans_default_domain 'admin' %}
+{% set page = 'resetting.message.confirm_password_change' %}
+
+
+{% block body %}
+    <div id="login-body">
+        <p>{{ app_name }} Admin</p>
+
+        <div id="login-content">
+            <p class="message">{{ page | trans }}</p>
+            <div>
+                {{ 'resetting.reset_password.confirm'|trans }}
+            </div>
+            <form action="{{ path('symshop_admin') }}">
+                <input type="submit" value="{{ 'resetting.reset_password.continue' | trans }}"/>
+            </form>
+        </div>
+        <p class="login-subtitle">@2016 by SymShop Community</p>
+        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+    </div>
+{% endblock %}

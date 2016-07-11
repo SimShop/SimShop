@@ -1,0 +1,21 @@
+{% extends '@Symshop/Security/admin/base.html.twig' %}
+{% trans_default_domain "admin" %}
+
+{% block body %}
+    <div id="login-body">
+        <p>{{ app_name }} Admin</p>
+
+        <div id="login-content">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <p class="message">{{ 'login.message.already-signed' | trans }}</p>
+                <a href="{{ path('admin_logout') }}" class="logout"><input type="submit" value="{{ 'login.logout' | trans }}"></a>
+            {% else %}
+                <p class="message">{{ page | trans }}</p>
+                {{ block('fos_user_content') }}
+
+            {% endif %}
+        </div>
+        <p class="login-subtitle">@2016 by SymShop Community</p>
+        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+    </div>
+{% endblock %}
